@@ -25,7 +25,7 @@ USER_ID=blucie
 CHR_LIST=`echo 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22`
 
 # List of steps to perform
-STEPS_LIST=`echo 1 2 3 4 5 6 7 8`
+STEPS_LIST=`echo 1 2 3 4 5 6 7 8 9`
 
 # Parameters to filter SNPs and samples
 SNP_CALLRATE=`echo 0.05`
