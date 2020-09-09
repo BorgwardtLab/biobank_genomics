@@ -48,7 +48,7 @@ done
 # STEP 3.4 : extract IDs of subjects with ambiguous sex
 for chr in $CHR_LIST
 do
-	sed -n '1,85p' < $geno_dir/plink/c${chr}.onlyrsids.imputed.makebed.fam > $geno_dir/plink/c${chr}.ambsex.txt
+	sed -n '1,85p' < $geno_dir/plink/c${chr}.onlyrsids.imputed.makebed.nosex > $geno_dir/plink/c${chr}.ambsex.txt
 done
 
 # STEP 3.5 : exclude subjects with ambiguous sex (--remove) and duplicates SNPs (--exclude)
