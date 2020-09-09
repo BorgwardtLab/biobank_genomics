@@ -24,7 +24,7 @@ source paths_and_parameters.sh
 
 for chr in $CHR_LIST
 do
-	$plink_dir/plink --file $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered \
+	$plink_dir/plink --bfile $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered \
         		     --geno $SNP_CALLRATE --maf $SNP_MAF --mind $SAMPLE_CALLRATE \
                    	 --make-bed \
                      --out $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered.1
