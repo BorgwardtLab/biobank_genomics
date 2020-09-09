@@ -174,7 +174,7 @@ bash ./steps_code/3_exclusion_duplicates.sh
 
 # STEP 4 : Filter SNPs & subjects based on call rate, minor allele frequency (MAF), linkage disequilibrium (LD) and Hardy-Weinberg equilibrium (HWE)
 
-#bash ./steps_code/4_filter_and_convert.sh
+bash ./steps_code/4_filter_and_convert.sh
 
 # -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
@@ -268,7 +268,7 @@ bash ./steps_code/3_exclusion_duplicates.sh
 
 # STEP 5 : Run PLINK to merge all the individual chromosome files
 
-#bash ./steps_code/5_merge_chr.sh
+bash ./steps_code/5_merge_chr.sh
 
 # -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
@@ -278,7 +278,7 @@ bash ./steps_code/3_exclusion_duplicates.sh
 
 # STEP 6 : Split into male and female
 
-#bash ./steps_code/6_split_malefemale.sh
+bash ./steps_code/6_split_malefemale.sh
 
 # -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
@@ -288,7 +288,7 @@ bash ./steps_code/3_exclusion_duplicates.sh
 
 # STEP 7 : Split into train and test
 
-#bash ./steps_code/7_split_traintest.sh
+bash ./steps_code/7_split_traintest.sh
 
 # -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
@@ -298,7 +298,7 @@ bash ./steps_code/3_exclusion_duplicates.sh
 
 # STEP 8 : Extract based on phenotypes
 
-#bash ./steps_code/8_filter_phenotype.sh
+bash ./steps_code/8_filter_phenotype.sh
 
 # -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
@@ -308,7 +308,7 @@ bash ./steps_code/3_exclusion_duplicates.sh
 
 # STEP 9 : Convert to HDF5
 
-#bash ./steps_code/9_convert_hdf5.sh
+bash ./steps_code/9_convert_hdf5.sh
 
 # -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
