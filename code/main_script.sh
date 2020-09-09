@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# -----------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 #
 # Preprocessing UK Biobank genotype_500k - Main file
 #
-# -----------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 #
 # This script prepares the code to create an HDF5 file from the original PLINK data
 #
@@ -18,20 +18,17 @@
 # Adapted Version for UKBiobank 500K Data: February, 2020 L. Bourguignon
 # With the contribution of C. Jutzeler and C. Weis
 #
-# -----------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 
 source paths_and_parameters.sh
 
-# -----------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 
-# STEP 1 : select SNPs which have IDs
+# STEP 1 : Select SNPs which have IDs
 
-if [[ " ${STEPS_LIST[*]} " == *1* ]]; then
-    bash ./steps_code/1_select_SNPs_with_IDs.sh
-fi
+bash ./steps_code/1_select_SNPs_with_IDs.sh
 
-
-# ----------------------------------OUTPUT-------------------------------------
+# -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
 # Note: Output from EULER when executing QCTOOL on chr 1 (largest) and chr 22 (smallest)
 #   CHR 1 
@@ -66,101 +63,84 @@ fi
 #   Number of SNPs:     12,622
 #   Avg. time per SNP:      ~1 microsecond
 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 
-# STEP 2 : convert .gen files to .ped and .map
+# STEP 2 : Convert .gen files to .ped and .map
 
-if [[ " ${STEPS_LIST[*]} " == *2* ]]; then
-    bash ./steps_code/2_convert_gen_pedmap.sh
-fi
+bash ./steps_code/2_convert_gen_pedmap.sh
 
-# ----------------------------------OUTPUT-------------------------------------
+# -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
 
+# ------------------------------------------------------------------------------------
 
-# -----------------------------------------------------------------------------
+# STEP 3 : Remove duplicate SNPs and subjects excluded from analysis (withdrawal, do not meet inclusion criteria)
 
-# STEP 3 : filter SNPs and samples and to convert .ped files to .bed
+bash ./steps_code/3_exclusion_duplicates.sh
 
-if [[ " ${STEPS_LIST[*]} " == *3* ]]; then
-    bash ./steps_code/3_filter_and_convert.sh
-fi
-
-# ----------------------------------OUTPUT-------------------------------------
+# -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
 
 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 
-# STEP 4 : Run PLINK to merge all the individual chromosome files
+# STEP 4 : Filter SNPs & subjects based on call rate, minor allele frequency (MAF), linkage disequilibrium (LD) and Hardy-Weinberg equilibrium (HWE)
 
-if [[ " ${STEPS_LIST[*]} " == *4* ]]; then
-    bash ./steps_code/4_merge_chr.sh
-fi
+bash ./steps_code/4_filter_and_convert.sh
 
-# ----------------------------------OUTPUT-------------------------------------
+# -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
 
 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 
-# STEP 5 : Split into male and female
+# STEP 5 : Run PLINK to merge all the individual chromosome files
 
-if [[ " ${STEPS_LIST[*]} " == *5* ]]; then
-    bash ./steps_code/5_split_malefemale.sh
-fi
+bash ./steps_code/5_merge_chr.sh
 
-# ----------------------------------OUTPUT-------------------------------------
+# -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
 
 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 
-# STEP 6 : Split into train and test
+# STEP 6 : Split into male and female
 
-if [[ " ${STEPS_LIST[*]} " == *6* ]]; then
-    bash ./steps_code/6_split_traintest.sh
-fi
+bash ./steps_code/6_split_malefemale.sh
 
-# ----------------------------------OUTPUT-------------------------------------
+# -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
 
 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 
-# STEP 7 : Extract based on phenotypes
+# STEP 7 : Split into train and test
 
-if [[ " ${STEPS_LIST[*]} " == *7* ]]; then
-    bash ./steps_code/7_filter_phenotype.sh
-fi
+bash ./steps_code/7_split_traintest.sh
 
-# ----------------------------------OUTPUT-------------------------------------
+# -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
 
 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 
-# STEP 8 : Recode files
+# STEP 8 : Extract based on phenotypes
 
-if [[ " ${STEPS_LIST[*]} " == *8* ]]; then
-    bash ./steps_code/8_recode_additive.sh
-fi
+bash ./steps_code/8_filter_phenotype.sh
 
-# ----------------------------------OUTPUT-------------------------------------
+# -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
 
 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 
 # STEP 9 : Convert to HDF5
 
-if [[ " ${STEPS_LIST[*]} " == *9* ]]; then
-    bash ./steps_code/9_convert_hdf5.sh
-fi
+bash ./steps_code/9_convert_hdf5.sh
 
-# ----------------------------------OUTPUT-------------------------------------
+# -----------------------------------EXAMPLE-OUTPUT-----------------------------------
 
 
 
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 

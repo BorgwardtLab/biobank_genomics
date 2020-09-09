@@ -6,7 +6,7 @@
 #
 # -----------------------------------------------------------------------------------
 #
-# This file contains script to select SNPs which have IDs
+# This file contains script to convert files into .ped and .map
 #
 # First Version: July 2016, D. Roqueiro
 #

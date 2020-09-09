@@ -2,7 +2,7 @@
 
 # -----------------------------------------------------------------------------------
 #
-# Preprocessing UK Biobank genotype_500k - Step 5 file
+# Preprocessing UK Biobank genotype_500k - Step 6 file
 #
 # -----------------------------------------------------------------------------------
 #
@@ -17,16 +17,16 @@
 
 source paths_and_parameters.sh
 
-# 5. Split into male and female
+# 6. Split into male and female
 
 # Filter out males to have only females and recode
-$plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.correct \
+$plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete \
 				 --filter-females \
             	 --make-bed \
-            	 --out $geno_dir/plink/all.onlyrsids.imputed.correct.female
+            	 --out $geno_dir/plink/all.onlyrsids.imputed.complete.female
 
 # Filter out females to have only males and recode
-$plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.correct \
+$plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete \
 				 --filter-males \
             	 --make-bed \
-            	 --out $geno_dir/plink/all.onlyrsids.imputed.correct.male
+            	 --out $geno_dir/plink/all.onlyrsids.imputed.complete.male

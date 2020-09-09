@@ -16,16 +16,14 @@
 # -----------------------------------------------------------------------------------
 
 # Parameters
-# Indicate where the script is invoked. Valid entries are 'server' or 'cluster'
-LOCATION=server
 # User id
 USER_ID=blucie
 # List of chromosomes to process
 ##NOTE: Chromosome X is coded as 23, chromosome Y as 24, and chromosome XY as 25
 CHR_LIST=`echo 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22`
 
-# List of steps to perform
-STEPS_LIST=`echo 1 2 3 4 5 6 7 8 9`
+# # List of steps to perform
+# STEPS_LIST=`echo 1 2 3 4 5 6 7 8 9`
 
 # Parameters to filter SNPs and samples
 SNP_CALLRATE=`echo 0.05`

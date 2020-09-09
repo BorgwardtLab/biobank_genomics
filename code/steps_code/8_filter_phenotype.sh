@@ -2,11 +2,11 @@
 
 # -----------------------------------------------------------------------------------
 #
-# Preprocessing UK Biobank genotype_500k - Step 7 file
+# Preprocessing UK Biobank genotype_500k - Step 8 file
 #
 # -----------------------------------------------------------------------------------
 #
-# This file contains script to filter based on project-specific requirements
+# This file contains script to filter based on project-specific requirements and recode according to the additive model
 #
 # First Version: July 2016, D. Roqueiro
 #
@@ -17,9 +17,18 @@
 
 source paths_and_parameters.sh
 
-# 7. Extract based on phenotypes
+# 8. Extract based on phenotypes
 
-# MALE # # 
+#  Recode the genotypes to the additive model. Assuming that C is the minor allele for a given SNP, the additive model is:
+#   SNP      Additive
+#   ---      --------
+#   A A   ->    0
+#   A C   ->    1
+#   C C   ->    2
+#  It is basically the count of the minor allele
+# Source: PLINK's online help page http://pngu.mgh.harvard.edu/~purcell/plink/dataman.shtml
+
+# # MALE # # 
 groups=()
 excluded_participants=()
 groups_init=()
@@ -30,14 +39,15 @@ for i in angina any_allowance any_heart_d any_household any_trauma attendance bl
   groups[i]="${groups_init[i]}_male"
   excluded_participants_init[i]="excluded_participants_$i"
   excluded_participants[i]="${excluded_participants_init[i]}_male"
-  name[i]="all.onlyrsids.imputed.correct.male.train.$i"
+  name[i]="all.onlyrsids.imputed.complete.male.train.$i"
 
    echo ${groups[i]}
 
-   grep -w -F -f $geno_dir/plink/${groups[i]}.txt $geno_dir/plink/all.onlyrsids.imputed.correct.male.fam > $geno_dir/plink/${excluded_participants[i]}.txt
+   grep -w -F -f $geno_dir/plink/${groups[i]}.txt $geno_dir/plink/all.onlyrsids.imputed.complete.male.train.fam > $geno_dir/plink/${excluded_participants[i]}.txt
 
-   $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.correct.male \
+   $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete.male.train \
 	                --keep $geno_dir/plink/${excluded_participants[i]}.txt\
+	                --recode A \
 	                --make-bed \
 	                --out $geno_dir/plink/${name[i]}
 done
@@ -54,14 +64,15 @@ for i in any_allowance any_trauma attendance blue_badge cancer death_partner dea
   groups[i]="${groups_init[i]}_female"
   excluded_participants_init[i]="excluded_participants_$i"
   excluded_participants[i]="${excluded_participants_init[i]}_female"
-  name[i]="all.onlyrsids.imputed.correct.female.train.$i"
+  name[i]="all.onlyrsids.imputed.complete.female.train.$i"
 
   echo ${groups[i]}
 
   grep -w -F -f $geno_dir/plink/${groups[i]}.txt $geno_dir/plink/all.onlyrsids.imputed.correct.female.fam > $geno_dir/plink/${excluded_participants[i]}.txt
 
-  $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.correct.female \
+  $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.correct.female.train \
 	               --keep $geno_dir/plink/${excluded_participants[i]}.txt\
+	               --recode A \
 	               --make-bed \
 	               --out $geno_dir/plink/${name[i]}
 done
