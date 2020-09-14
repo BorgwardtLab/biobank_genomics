@@ -68,9 +68,9 @@ for i in any_allowance any_trauma attendance blue_badge cancer death_partner dea
 
   echo ${groups[i]}
 
-  grep -w -F -f $geno_dir/plink/${groups[i]}.txt $geno_dir/plink/all.onlyrsids.imputed.correct.female.fam > $geno_dir/plink/${excluded_participants[i]}.txt
+  grep -w -F -f $geno_dir/plink/${groups[i]}.txt $geno_dir/plink/all.onlyrsids.imputed.complete.female.fam > $geno_dir/plink/${excluded_participants[i]}.txt
 
-  $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.correct.female.train \
+  $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete.female.train \
 	               --keep $geno_dir/plink/${excluded_participants[i]}.txt\
 	               --recode A \
 	               --make-bed \

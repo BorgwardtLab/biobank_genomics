@@ -39,10 +39,9 @@ HWE=`echo 1e-6`
 prj_dir=/links/groups/borgwardt/Data/UKBiobank
 
 # Tools
-oxford_dir=/links/groups/borgwardt/agkbshare/software/LINUX64/tools/oxford2
-oxford_dir2=/links/groups/borgwardt/agkbshare/software/LINUX64/tools/oxford
-plink_dir=/links/groups/borgwardt/agkbshare/software/LINUX64/tools/plink2
-scripts_dir=$prj_dir/scripts/preprocess_data/Catherine/euler
+oxford_dir=/links/groups/borgwardt/agkbshare/software/LINUX64/tools/oxford2 # path to qctool software
+oxford_dir2=/links/groups/borgwardt/agkbshare/software/LINUX64/tools/oxford # path to gtool software
+plink_dir=/links/groups/borgwardt/agkbshare/software/LINUX64/tools/plink2 # path to plink software
 
 # Genotype data
 geno_dir=$prj_dir/genotype_500k/EGAD00010001497

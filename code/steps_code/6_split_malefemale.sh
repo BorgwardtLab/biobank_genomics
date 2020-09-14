@@ -6,7 +6,7 @@
 #
 # -----------------------------------------------------------------------------------
 #
-# This file contains script to split data into two files based on gender
+# This file contains script to split data into two files based on sex
 #
 # First Version: July 2016, D. Roqueiro
 #
@@ -19,13 +19,13 @@ source paths_and_parameters.sh
 
 # 6. Split into male and female
 
-# Filter out males to have only females and recode
+# Filter out males to have only females
 $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete \
 				 --filter-females \
             	 --make-bed \
             	 --out $geno_dir/plink/all.onlyrsids.imputed.complete.female
 
-# Filter out females to have only males and recode
+# Filter out females to have only males
 $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete \
 				 --filter-males \
             	 --make-bed \

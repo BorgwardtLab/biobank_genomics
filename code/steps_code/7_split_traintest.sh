@@ -22,26 +22,29 @@ source paths_and_parameters.sh
 # Test : Scottish centers
 # Train : All the other centers
 
+grep -w -F -f $geno_dir/plink/list_ID_scotland.txt $geno_dir/plink/all.onlyrsids.imputed.complete.female.fam > $geno_dir/plink/excluded_scotland_female.txt
+grep -w -F -f $geno_dir/plink/list_ID_scotland.txt $geno_dir/plink/all.onlyrsids.imputed.complete.male.fam > $geno_dir/plink/excluded_scotland_male.txt
+
 # Filter out Scottish centers in female file to get female train set
 $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete.female \
-		         --remove $geno_dir/plink/list_ID_scotland.txt \
-            	 --make-bed \
-            	 --out $geno_dir/plink/all.onlyrsids.imputed.complete.female.train
+		     --remove $geno_dir/plink/excluded_scotland_female.txt \
+                 --make-bed \
+                 --out $geno_dir/plink/all.onlyrsids.imputed.complete.female.train
 
 # Only keep Scottish centers in female file to get female test set
 $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete.female \
-		         --keep $geno_dir/plink/list_ID_scotland.txt \
-            	 --make-bed \
-            	 --out $geno_dir/plink/all.onlyrsids.imputed.complete.female.test
+		     --keep $geno_dir/plink/excluded_scotland_female.txt \
+                 --make-bed \
+                 --out $geno_dir/plink/all.onlyrsids.imputed.complete.female.test
 
 # Filter out Scottish centers in male file to get male train set
 $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete.male \
-				 --remove $geno_dir/plink/list_ID_scotland.txt \
-            	 --make-bed \
-            	 --out $geno_dir/plink/all.onlyrsids.imputed.complete.male.train
+		     --remove $geno_dir/plink/excluded_scotland_male.txt \
+                 --make-bed \
+                 --out $geno_dir/plink/all.onlyrsids.imputed.complete.male.train
 
 # Only keep Scottish centers in male file to get male test set
 $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete.male \
-				 --keep $geno_dir/plink/list_ID_scotland.txt \
-            	 --make-bed \
-            	 --out $geno_dir/plink/all.onlyrsids.imputed.complete.male.test
+		     --keep $geno_dir/plink/excluded_scotland_male.txt \
+                 --make-bed \
+                 --out $geno_dir/plink/all.onlyrsids.imputed.complete.male.test
