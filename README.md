@@ -40,7 +40,7 @@ bash ./code/main_script.sh
 
 It will successively call the scripts for the different steps, which can be found under `./code/steps_code`. Below is a description of each step:
 
-![alt text](https://github.com/lbourguignon/Preprocessing_UKBiobank_genotype500k/blob/master/flowchart/description_steps.jpg?raw=true)
+![alt text](https://github.com/lbourguignon/Preprocessing_UKBiobank_genotype500k/blob/master/flowchart/description_steps.png?raw=true)
 
 Output examples for each steps can be found under [`./code/README.md`](https://github.com/lbourguignon/Preprocessing_UKBiobank_genotype500k/tree/master/code)
 
