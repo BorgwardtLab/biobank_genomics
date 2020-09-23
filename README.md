@@ -1,6 +1,6 @@
 # Pre-processing of genomic data from the UK Biobank
 
-![](https://en.wikipedia.org/wiki/UK_Biobank#/media/File:UK_biobank_logo.png)
+![alt text](https://github.com/lbourguignon/Preprocessing_UKBiobank_genotype500k/blob/master/UK_biobank_logo.png?raw=true)
 
 ## Software requirement
 
