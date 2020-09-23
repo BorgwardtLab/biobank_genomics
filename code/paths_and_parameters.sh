@@ -16,12 +16,10 @@
 # -----------------------------------------------------------------------------------
 
 # Parameters
-# User id
-USER_ID=blucie
+
 # List of chromosomes to process
 ##NOTE: Chromosome X is coded as 23, chromosome Y as 24, and chromosome XY as 25
-#CHR_LIST=`echo 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22`
-CHR_LIST=`echo 22`
+CHR_LIST=`echo 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22`
 
 # # List of steps to perform
 # STEPS_LIST=`echo 1 2 3 4 5 6 7 8 9`
@@ -50,4 +48,4 @@ geno_dir=$prj_dir/genotype_500k/EGAD00010001497
 imp_dir=$prj_dir/genotype_500k/EGAD00010001474
 
 # Output data
-out_dir=$prj_dir/genotype_500k/plink_474_Lucie
+out_dir=$prj_dir/genotype_500k/plink_474_output
