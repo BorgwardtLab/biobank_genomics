@@ -26,13 +26,13 @@ source paths_and_parameters.sh
 
 # STEP 1 : Select SNPs which have IDs
 
-#bash ./steps_code/1_select_SNPs_with_IDs.sh
+bash ./steps_code/1_select_SNPs_with_IDs.sh
 
 # ------------------------------------------------------------------------------------
 
 # STEP 2 : Convert .gen files to .ped and .map
 
-#bash ./steps_code/2_convert_gen_pedmap.sh
+bash ./steps_code/2_convert_gen_pedmap.sh
 
 # ------------------------------------------------------------------------------------
 

@@ -44,6 +44,10 @@ It will successively call the scripts for the different steps, which can be foun
 
 Output examples for each steps can be found under [`./code/README.md`](https://github.com/lbourguignon/Preprocessing_UKBiobank_genotype500k/tree/master/code)
 
+## External resources
+
+* [UK Biobank](https://www.ukbiobank.ac.uk/)
+* [PLINK](https://www.cog-genomics.org/plink/2.0/)
 
 ## Contact
 
@@ -51,3 +55,5 @@ This repository is maintained by:
 * [Lucie Bourguignon](https://github.com/lbourguignon)
 * [Caroline Weis](https://github.com/cvweis)
 * [Catherine Jutzeler](https://github.com/jutzca)
+
+Data acquisition and analyses in the present study were conducted under UK Biobank Application #14762.
