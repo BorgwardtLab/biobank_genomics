@@ -2,7 +2,7 @@
 
 ## Step 1
 
-Note: Output from EULER when executing QCTOOL on chr 1 (largest) and chr 22 (smallest)
+Note: Output from [EULER cluster](https://scicomp.ethz.ch/wiki/Euler) when executing QCTOOL on chr 1 (largest) and chr 22 (smallest)
 
 ```
    CHR 1 
@@ -49,21 +49,21 @@ Note: Output from EULER when executing QCTOOL on chr 1 (largest) and chr 22 (sma
 ```
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.makebed.log.
+Logging to $out_dir/c22.onlyrsids.imputed.makebed.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 .ped scan complete (for binary autoconversion).
 Performing single-pass .bed write (11923 variants, 487409 people).
 --file:
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.makebed-temporary.bed
+$out_dir/c22.onlyrsids.imputed.makebed-temporary.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.makebed-temporary.bim
+$out_dir/c22.onlyrsids.imputed.makebed-temporary.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.makebed-temporary.fam
+$out_dir/c22.onlyrsids.imputed.makebed-temporary.fam
 written.
 11923 variants loaded from .bim file.
 487409 people (223006 males, 264318 females, 85 ambiguous) loaded from .fam.
 Ambiguous sex IDs written to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.makebed.nosex
+$out_dir/c22.onlyrsids.imputed.makebed.nosex
 .
 Using 1 thread (no multithreaded calculations invoked).
 Before main variant filters, 487409 founders and 0 nonfounders present.
@@ -71,20 +71,20 @@ Calculating allele frequencies... done.
 11923 variants and 487409 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.makebed.bed
+$out_dir/c22.onlyrsids.imputed.makebed.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.makebed.bim
+$out_dir/c22.onlyrsids.imputed.makebed.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.makebed.fam
+$out_dir/c22.onlyrsids.imputed.makebed.fam
 ... done.
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.log.
+Logging to $out_dir/c22.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 11923 variants loaded from .bim file.
 487409 people (223006 males, 264318 females, 85 ambiguous) loaded from .fam.
 Ambiguous sex IDs written to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.nosex
+$out_dir/c22.nosex
 .
 Using 1 thread (no multithreaded calculations invoked).
 Before main variant filters, 487409 founders and 0 nonfounders present.
@@ -92,16 +92,16 @@ Calculating allele frequencies... done.
 11923 variants and 487409 people pass filters and QC.
 Note: No phenotypes present.
 List of variant IDs written to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.snplist
+$out_dir/c22.snplist
 .
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.log.
+Logging to $out_dir/c22.onlyrsids.imputed.noduplicates.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 11923 variants loaded from .bim file.
 487409 people (223006 males, 264318 females, 85 ambiguous) loaded from .fam.
 Ambiguous sex IDs written to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.nosex
+$out_dir/c22.onlyrsids.imputed.noduplicates.nosex
 .
 --exclude: 11859 variants remaining.
 --remove: 487324 people remaining.
@@ -111,15 +111,15 @@ Calculating allele frequencies... done.
 11859 variants and 487324 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.bed
+$out_dir/c22.onlyrsids.imputed.noduplicates.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.bim
+$out_dir/c22.onlyrsids.imputed.noduplicates.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.fam
+$out_dir/c22.onlyrsids.imputed.noduplicates.fam
 ... done.
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.log.
+Logging to $out_dir/c22.onlyrsids.imputed.noduplicates.filtered.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 11859 variants loaded from .bim file.
 487324 people (223006 males, 264318 females) loaded from .fam.
@@ -130,11 +130,11 @@ Calculating allele frequencies... done.
 11859 variants and 429874 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.bed
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.bim
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.fam
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.fam
 ... done.
 ```
 
@@ -143,7 +143,7 @@ Note: No phenotypes present.
 ```
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.1.log.
+Logging to $out_dir/c22.onlyrsids.imputed.noduplicates.filtered.1.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 11859 variants loaded from .bim file.
 429874 people (197261 males, 232613 females) loaded from .fam.
@@ -157,15 +157,15 @@ Calculating allele frequencies... done.
 10313 variants and 429874 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.1.bed
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.1.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.1.bim
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.1.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.1.fam
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.1.fam
 ... done.
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.2.log.
+Logging to $out_dir/c22.onlyrsids.imputed.noduplicates.filtered.2.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 10313 variants loaded from .bim file.
 429874 people (197261 males, 232613 females) loaded from .fam.
@@ -175,22 +175,22 @@ Calculating allele frequencies... done.
 10313 variants and 429874 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.2.bed
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.2.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.2.bim
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.2.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.2.fam
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.2.fam
 ... done.
 Pruned 9097 variants from chromosome 22, leaving 1216.
 Pruning complete.  9097 of 10313 variants removed.
 Marker lists written to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.2.prune.in
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.2.prune.in
 and
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.2.prune.out
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.2.prune.out
 .
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.2.bis.log.
+Logging to $out_dir/c22.onlyrsids.imputed.noduplicates.filtered.2.bis.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 10313 variants loaded from .bim file.
 429874 people (197261 males, 232613 females) loaded from .fam.
@@ -201,15 +201,15 @@ Calculating allele frequencies... done.
 1216 variants and 429874 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.2.bis.bed
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.2.bis.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.2.bis.bim
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.2.bis.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.2.bis.fam
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.2.bis.fam
 ... done.
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.3.log.
+Logging to $out_dir/c22.onlyrsids.imputed.noduplicates.filtered.3.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 1216 variants loaded from .bim file.
 429874 people (197261 males, 232613 females) loaded from .fam.
@@ -220,11 +220,11 @@ Calculating allele frequencies... done.
 1141 variants and 429874 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.3.bed
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.3.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.3.bim
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.3.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/c22.onlyrsids.imputed.noduplicates.filtered.3.fam
+$out_dir/c22.onlyrsids.imputed.noduplicates.filtered.3.fam
 ... done.
 ```
 
@@ -233,15 +233,15 @@ Note: No phenotypes present.
 ```
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.log.
+Logging to $out_dir/all.onlyrsids.imputed.complete.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 Performing single-pass merge (429874 people, 62737 variants).
 Merged fileset written to                     
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete-merge.bed
+$out_dir/all.onlyrsids.imputed.complete-merge.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete-merge.bim
+$out_dir/all.onlyrsids.imputed.complete-merge.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete-merge.fam
+$out_dir/all.onlyrsids.imputed.complete-merge.fam
 .
 62737 variants loaded from .bim file.
 429874 people (197261 males, 232613 females) loaded from .fam.
@@ -251,11 +251,11 @@ Calculating allele frequencies... done.
 62737 variants and 429874 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.bed
+$out_dir/all.onlyrsids.imputed.complete.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.bim
+$out_dir/all.onlyrsids.imputed.complete.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.fam
+$out_dir/all.onlyrsids.imputed.complete.fam
 ... done.
 ```
 
@@ -264,7 +264,7 @@ Note: No phenotypes present.
 ```
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.log.
+Logging to $out_dir/all.onlyrsids.imputed.complete.female.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 62737 variants loaded from .bim file.
 429874 people (197261 males, 232613 females) loaded from .fam.
@@ -275,15 +275,15 @@ Calculating allele frequencies... done.
 62737 variants and 232613 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.bed
+$out_dir/all.onlyrsids.imputed.complete.female.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.bim
+$out_dir/all.onlyrsids.imputed.complete.female.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.fam
+$out_dir/all.onlyrsids.imputed.complete.female.fam
 ... done.
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.log.
+Logging to $out_dir/all.onlyrsids.imputed.complete.male.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 62737 variants loaded from .bim file.
 429874 people (197261 males, 232613 females) loaded from .fam.
@@ -294,11 +294,11 @@ Calculating allele frequencies... done.
 62737 variants and 197261 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.bed
+$out_dir/all.onlyrsids.imputed.complete.male.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.bim
+$out_dir/all.onlyrsids.imputed.complete.male.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.fam
+$out_dir/all.onlyrsids.imputed.complete.male.fam
 ... done.
 ```
 
@@ -307,7 +307,7 @@ Note: No phenotypes present.
 ```
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.train.log.
+Logging to $out_dir/all.onlyrsids.imputed.complete.female.train.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 62737 variants loaded from .bim file.
 232613 people (0 males, 232613 females) loaded from .fam.
@@ -318,15 +318,15 @@ Calculating allele frequencies... done.
 62737 variants and 214990 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.train.bed
+$out_dir/all.onlyrsids.imputed.complete.female.train.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.train.bim
+$out_dir/all.onlyrsids.imputed.complete.female.train.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.train.fam
+$out_dir/all.onlyrsids.imputed.complete.female.train.fam
 ... done.
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.test.log.
+Logging to $out_dir/all.onlyrsids.imputed.complete.female.test.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 62737 variants loaded from .bim file.
 232613 people (0 males, 232613 females) loaded from .fam.
@@ -337,15 +337,15 @@ Calculating allele frequencies... done.
 62737 variants and 17623 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.test.bed
+$out_dir/all.onlyrsids.imputed.complete.female.test.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.test.bim
+$out_dir/all.onlyrsids.imputed.complete.female.test.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.female.test.fam
+$out_dir/all.onlyrsids.imputed.complete.female.test.fam
 ... done.
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.train.log.
+Logging to $out_dir/all.onlyrsids.imputed.complete.male.train.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 62737 variants loaded from .bim file.
 197261 people (197261 males, 0 females) loaded from .fam.
@@ -356,15 +356,15 @@ Calculating allele frequencies... done.
 62737 variants and 183186 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.train.bed
+$out_dir/all.onlyrsids.imputed.complete.male.train.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.train.bim
+$out_dir/all.onlyrsids.imputed.complete.male.train.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.train.fam
+$out_dir/all.onlyrsids.imputed.complete.male.train.fam
 ... done.
 PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
 (C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
-Logging to /links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.test.log.
+Logging to $out_dir/all.onlyrsids.imputed.complete.male.test.log.
 515868 MB RAM detected; reserving 257934 MB for main workspace.
 62737 variants loaded from .bim file.
 197261 people (197261 males, 0 females) loaded from .fam.
@@ -375,11 +375,11 @@ Calculating allele frequencies... done.
 62737 variants and 14075 people pass filters and QC.
 Note: No phenotypes present.
 --make-bed to
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.test.bed
+$out_dir/all.onlyrsids.imputed.complete.male.test.bed
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.test.bim
+$out_dir/all.onlyrsids.imputed.complete.male.test.bim
 +
-/links/groups/borgwardt/Data/UKBiobank/genotype_500k/EGAD00010001497/plink/all.onlyrsids.imputed.complete.male.test.fam
+$out_dir/all.onlyrsids.imputed.complete.male.test.fam
 ... done.
 ```
 
