@@ -34,18 +34,21 @@ LD_R2=`echo 0.04`
 HWE=`echo 1e-6`
 
 # Main project directory
-prj_dir=/links/groups/borgwardt/Data/UKBiobank
+prj_dir=~/UKBiobank
 
 # Tools
-oxford_dir=/links/groups/borgwardt/agkbshare/software/LINUX64/tools/oxford2 # path to qctool software
-oxford_dir2=/links/groups/borgwardt/agkbshare/software/LINUX64/tools/oxford # path to gtool software
-plink_dir=/links/groups/borgwardt/agkbshare/software/LINUX64/tools/plink2 # path to plink software
+oxford_dir=~/software/LINUX64/tools/oxford2 # path to qctool software
+oxford_dir2=~/software/LINUX64/tools/oxford # path to gtool software
+plink_dir=~/software/LINUX64/tools/plink2 # path to plink software
 
 # Genotype data
-geno_dir=$prj_dir/genotype_500k/EGAD00010001497
+# This folder should contain two folders: gen and plink, to store outputs from gctool and plink respectively
+geno_dir=$prj_dir/genotype_500k/genome
+geno_plink_dir=$geno_dir/plink
+geno_gen_dir=$geno_dir/gen
 
 # Imputed data
-imp_dir=$prj_dir/genotype_500k/EGAD00010001474
+imp_dir=$prj_dir/genotype_500k/imputed_genome
 
 # Output data
-out_dir=$prj_dir/genotype_500k/plink_474_output
+out_dir=$prj_dir/final_output_hdf5

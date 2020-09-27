@@ -24,29 +24,29 @@ source paths_and_parameters.sh
 
 for chr in $CHR_LIST
 do
-	$plink_dir/plink --bfile $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered \
+	$plink_dir/plink --bfile $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered \
         		       --geno $SNP_CALLRATE --maf $SNP_MAF --mind $SAMPLE_CALLRATE \
                    --make-bed \
-                   --out $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered.1
+                   --out $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered.1
 done
 
 # STEP 4.2 : SNP - LD pruning (determine which SNPs to keep)
 
 for chr in $CHR_LIST
 do
-	$plink_dir/plink --bfile $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered.1 \
+	$plink_dir/plink --bfile $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered.1 \
                    --indep-pairwise $LD_WINDOWSIZE['kb'] $LD_STEPSIZE['kb'] $LD_R2 \
 					         --make-bed \
-                 	 --out $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered.2
+                 	 --out $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered.2
 done
 
 # STEP 4.3 : SNP - LD pruning (remove SNPs that should not be kept in the analysis)
 for chr in $CHR_LIST
 do
-	$plink_dir/plink --bfile $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered.2 \
-                   --extract $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered.2.prune.in \
+	$plink_dir/plink --bfile $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered.2 \
+                   --extract $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered.2.prune.in \
                    --make-bed \
-                   --out $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered.2.bis
+                   --out $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered.2.bis
 done
 
 
@@ -54,9 +54,9 @@ done
 
 for chr in $CHR_LIST
 do
-	$plink_dir/plink --bfile $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered.2.bis \
+	$plink_dir/plink --bfile $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered.2.bis \
 					         --hwe $HWE \
                    --make-bed \
-                   --out $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered.3
+                   --out $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered.3
 done
 

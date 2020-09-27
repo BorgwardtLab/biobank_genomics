@@ -19,15 +19,16 @@ source paths_and_parameters.sh
 
 # 2. Convert the .gen files to .ped and .map
 # Run GTOOL to perform the conversion
+# Source documentation: https://www.well.ox.ac.uk/~gav/qctool_v2/documentation/alphabetical_options.html
 
 for chr in $CHR_LIST
 do
 
         $oxford_dir2/gtool \
-            -G --g $geno_dir/gen/c${chr}.onlyrsids.imputed.gen \
+            -G --g $geno_gen_dir/c${chr}.onlyrsids.imputed.gen \
             --s $imp_dir/ukb_imp_chr${chr}_v3.sample\
-            --ped $geno_dir/plink/c${chr}.onlyrsids.imputed.ped \
-            --map $geno_dir/plink/c${chr}.onlyrsids.imputed.map \
+            --ped $geno_plink_dir/c${chr}.onlyrsids.imputed.ped \
+            --map $geno_plink_dir/c${chr}.onlyrsids.imputed.map \
             --threshold 0.1
   
 done

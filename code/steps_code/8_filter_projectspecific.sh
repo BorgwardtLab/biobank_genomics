@@ -7,6 +7,9 @@
 # -----------------------------------------------------------------------------------
 #
 # This file contains script to filter based on project-specific requirements and recode according to the additive model
+# This step assumes the existence of a file containing IDs of subjects to keep in project specific analysis 
+# This file should be stored in $geno_plink_dir folder as specified in paths_and_parameters.sh script
+# or modify the paths accordingly on lines 49 and 74
 #
 # First Version: July 2016, D. Roqueiro
 #
@@ -43,13 +46,13 @@ for i in angina any_allowance any_heart_d any_household any_trauma attendance bl
 
    echo ${groups[i]}
 
-   grep -w -F -f $geno_dir/plink/${groups[i]}.txt $geno_dir/plink/all.onlyrsids.imputed.complete.male.train.fam > $geno_dir/plink/${excluded_participants[i]}.txt
+   grep -w -F -f $geno_plink_dir/${groups[i]}.txt $geno_plink_dir/all.onlyrsids.imputed.complete.male.train.fam > $geno_plink_dir/${excluded_participants[i]}.txt
 
-   $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete.male.train \
-	                --keep $geno_dir/plink/${excluded_participants[i]}.txt\
+   $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.male.train \
+	                --keep $geno_plink_dir/${excluded_participants[i]}.txt\
 	                --recode A \
 	                --make-bed \
-	                --out $geno_dir/plink/${name[i]}
+	                --out $geno_plink_dir/${name[i]}
 done
 
 
@@ -68,11 +71,11 @@ for i in any_allowance any_trauma attendance blue_badge cancer death_partner dea
 
   echo ${groups[i]}
 
-  grep -w -F -f $geno_dir/plink/${groups[i]}.txt $geno_dir/plink/all.onlyrsids.imputed.complete.female.fam > $geno_dir/plink/${excluded_participants[i]}.txt
+  grep -w -F -f $geno_plink_dir/${groups[i]}.txt $geno_plink_dir/all.onlyrsids.imputed.complete.female.fam > $geno_plink_dir/${excluded_participants[i]}.txt
 
-  $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete.female.train \
-	               --keep $geno_dir/plink/${excluded_participants[i]}.txt\
+  $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.female.train \
+	               --keep $geno_plink_dir/${excluded_participants[i]}.txt\
 	               --recode A \
 	               --make-bed \
-	               --out $geno_dir/plink/${name[i]}
+	               --out $geno_plink_dir/${name[i]}
 done

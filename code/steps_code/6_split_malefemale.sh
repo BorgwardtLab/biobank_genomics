@@ -20,13 +20,13 @@ source paths_and_parameters.sh
 # 6. Split into male and female
 
 # Filter out males to have only females
-$plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete \
+$plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete \
 				 --filter-females \
             	 --make-bed \
-            	 --out $geno_dir/plink/all.onlyrsids.imputed.complete.female
+            	 --out $geno_plink_dir/all.onlyrsids.imputed.complete.female
 
 # Filter out females to have only males
-$plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete \
+$plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete \
 				 --filter-males \
             	 --make-bed \
-            	 --out $geno_dir/plink/all.onlyrsids.imputed.complete.male
+            	 --out $geno_plink_dir/all.onlyrsids.imputed.complete.male

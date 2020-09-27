@@ -25,49 +25,49 @@ source paths_and_parameters.sh
 
 for chr in $CHR_LIST
 do
-	$plink_dir/plink --file $geno_dir/plink/c${chr}.onlyrsids.imputed \
+	$plink_dir/plink --file $geno_plink_dir/c${chr}.onlyrsids.imputed \
         		     --make-bed \
-                   	 --out $geno_dir/plink/c${chr}.onlyrsids.imputed.makebed
+                   	 --out $geno_plink_dir/c${chr}.onlyrsids.imputed.makebed
 done
 
 
 # STEP 3.2 : create a list of SNPs present in each chromosome file
 for chr in $CHR_LIST
 do
-	$plink_dir/plink --bfile $geno_dir/plink/c${chr}.onlyrsids.imputed.makebed \
+	$plink_dir/plink --bfile $geno_plink_dir/c${chr}.onlyrsids.imputed.makebed \
 					 --write-snplist \
-					 --out $geno_dir/plink/c${chr}
+					 --out $geno_plink_dir/c${chr}
 done
 
 # STEP 3.3 : isolate the IDs of duplicates SNPs and sort them in a .txt file
 for chr in $CHR_LIST
 do
-	sort -m $geno_dir/plink/c${chr}.snplist | uniq -d > $geno_dir/plink/c${chr}.duplicatestoberemoved.txt
+	sort -m $geno_plink_dir/c${chr}.snplist | uniq -d > $geno_plink_dir/c${chr}.duplicatestoberemoved.txt
 done
 
 # STEP 3.4 : extract IDs of subjects with ambiguous sex
 for chr in $CHR_LIST
 do
-	sed -n '1,85p' < $geno_dir/plink/c${chr}.onlyrsids.imputed.makebed.nosex > $geno_dir/plink/c${chr}.ambsex.txt
+	sed -n '1,85p' < $geno_plink_dir/c${chr}.onlyrsids.imputed.makebed.nosex > $geno_plink_dir/c${chr}.ambsex.txt
 done
 
 # STEP 3.5 : exclude subjects with ambiguous sex (--remove) and duplicates SNPs (--exclude)
 for chr in $CHR_LIST
 do
-	$plink_dir/plink --bfile $geno_dir/plink/c${chr}.onlyrsids.imputed.makebed \
-        		     --remove $geno_dir/plink/c${chr}.ambsex.txt \
-        		     --exclude $geno_dir/plink/c${chr}.duplicatestoberemoved.txt \
+	$plink_dir/plink --bfile $geno_plink_dir/c${chr}.onlyrsids.imputed.makebed \
+        		     --remove $geno_plink_dir/c${chr}.ambsex.txt \
+        		     --exclude $geno_plink_dir/c${chr}.duplicatestoberemoved.txt \
         		     --make-bed \
-                   	 --out $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates
+                   	 --out $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates
 done
 
 # STEP 3.6 : extract the entire information from subjects to delete based on their IDs, stored in list_ID_to_delete.txt
-grep -w -F -f $geno_dir/plink/list_ID_to_delete.txt $geno_dir/plink/c1.onlyrsids.imputed.noduplicates.fam > $geno_dir/plink/excluded_participants_start.txt
+grep -w -F -f $geno_plink_dir/list_ID_to_delete.txt $geno_plink_dir/c1.onlyrsids.imputed.noduplicates.fam > $geno_plink_dir/excluded_participants_start.txt
 
 for chr in $CHR_LIST
 do
-	$plink_dir/plink --bfile $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates \
-					 --remove $geno_dir/plink/excluded_participants_start.txt \
+	$plink_dir/plink --bfile $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates \
+					 --remove $geno_plink_dir/excluded_participants_start.txt \
                    	 --make-bed \
-                   	 --out $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered
+                   	 --out $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered
 done

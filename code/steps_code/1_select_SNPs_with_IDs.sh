@@ -6,7 +6,7 @@
 #
 # -----------------------------------------------------------------------------------
 #
-# This file contains script to select SNPs which have IDs
+# This file contains script to select SNPs which have IDs and perform imputation
 #
 # First Version: July 2016, D. Roqueiro
 #
@@ -17,20 +17,19 @@
 
 source paths_and_parameters.sh
 
-
 # 1. Traverse the .bim files and create a list of SNPs with rs Ids
 # Note: Exclude SNPs that do not have rs Ids from the analysis 
 
 # IMPORTANT: <Ctrl.v+TAB> need to be replaced and executed before executing in the command line
  for chr in $CHR_LIST
  do
-    grep "${chr}  rs" $geno_dir/ukb_snp_chr${chr}_v2.bim > $out_dir/c${chr}.onlyrsids.bim
+    grep "${chr}  rs" $geno_dir/ukb_snp_chr${chr}_v2.bim > $geno_dir/c${chr}.onlyrsids.bim
 
     # Create a list of SNPs to be used when extracting genotypes from the imputed data (next step)
-    awk '{print $2}' $out_dir/c${chr}.onlyrsids.bim > $out_dir/c${chr}.onlyrsids.txt
+    awk '{print $2}' $geno_dir/c${chr}.onlyrsids.bim > $geno_dir/c${chr}.onlyrsids.txt
 
     # Get a count of lines before and after
-    wc -l $geno_dir/ukb_snp_chr${chr}_v2.bim $out_dir/c${chr}.onlyrsids.txt
+    wc -l $geno_dir/ukb_snp_chr${chr}_v2.bim $geno_dir/c${chr}.onlyrsids.txt
 done
 
 
@@ -45,6 +44,8 @@ done
 # -og -> Specify that qctool should write an output genotype file with the specified filename. The type of this file will be determined from the filename extension. 
 # -log -> Specify that qctool should write a log file to the given file.
 
+# Source documentation: https://www.well.ox.ac.uk/~gav/qctool_v2/documentation/alphabetical_options.html
+
 #######################################
 #### DON'T RUN THIS STEP ON EULER #####
 #######################################
@@ -55,8 +56,8 @@ do
     $oxford_dir/qctool\
         -g $imp_dir/ukb_imp_chr${chr}_v3.bgen\
         -s $imp_dir/ukb_imp_chr${chr}_v3.sample\
-        -incl-rsids $out_dir/c${chr}.onlyrsids.txt\
+        -incl-rsids $geno_dir/c${chr}.onlyrsids.txt\
         -omit-chromosome\
-        -og $geno_dir/gen/c${chr}.onlyrsids.imputed.gen\
-        -log $geno_dir/gen/c${chr}.onlyrsids.imputed.log &
+        -og $geno_gen_dir/c${chr}.onlyrsids.imputed.gen\
+        -log $geno_gen_dir/c${chr}.onlyrsids.imputed.log &
 done

@@ -43,13 +43,13 @@ for i in angina any_allowance any_heart_d any_household any_trauma attendance bl
 
    echo ${groups[i]}
 
-   grep -w -F -f $geno_dir/plink/${groups[i]}.txt $geno_dir/plink/all.onlyrsids.imputed.complete.male.train.fam > $geno_dir/plink/${excluded_participants[i]}.txt
+   grep -w -F -f $geno_plink_dir/${groups[i]}.txt $geno_plink_dir/all.onlyrsids.imputed.complete.male.train.fam > $geno_plink_dir/${excluded_participants[i]}.txt
 
-   $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.complete.male.train \
-	                --keep $geno_dir/plink/${excluded_participants[i]}.txt\
+   $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.male.train \
+	                --keep $geno_plink_dir/${excluded_participants[i]}.txt\
 	                --recode A \
 	                --make-bed \
-	                --out $geno_dir/plink/${name[i]}
+	                --out $geno_plink_dir/${name[i]}
 done
 
 
@@ -68,11 +68,11 @@ for i in any_allowance any_trauma attendance blue_badge cancer death_partner dea
 
   echo ${groups[i]}
 
-  grep -w -F -f $geno_dir/plink/${groups[i]}.txt $geno_dir/plink/all.onlyrsids.imputed.correct.female.fam > $geno_dir/plink/${excluded_participants[i]}.txt
+  grep -w -F -f $geno_plink_dir/${groups[i]}.txt $geno_plink_dir/all.onlyrsids.imputed.correct.female.fam > $geno_plink_dir/${excluded_participants[i]}.txt
 
-  $plink_dir/plink --bfile $geno_dir/plink/all.onlyrsids.imputed.correct.female.train \
-	               --keep $geno_dir/plink/${excluded_participants[i]}.txt\
+  $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.correct.female.train \
+	               --keep $geno_plink_dir/${excluded_participants[i]}.txt\
 	               --recode A \
 	               --make-bed \
-	               --out $geno_dir/plink/${name[i]}
+	               --out $geno_plink_dir/${name[i]}
 done

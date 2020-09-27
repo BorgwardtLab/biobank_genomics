@@ -24,22 +24,22 @@ source paths_and_parameters.sh
 # STEP 5.1 Create a list of all the .bed files created in the previous step. The list is used in the merging step.
 # If the list exists, then delete it and create an empty one
 
-if [ -f "$geno_dir/plink/list_bed_files_to_merge_bis.txt" ]; then
-    rm $geno_dir/plink/list_bed_files_to_merge_bis.txt
+if [ -f "$geno_plink_dir/list_bed_files_to_merge_bis.txt" ]; then
+    rm $geno_plink_dir/list_bed_files_to_merge_bis.txt
 fi
-touch $geno_dir/plink/list_bed_files_to_merge_bis.txt
+touch $geno_plink_dir/list_bed_files_to_merge_bis.txt
 
 # Populate the new list with the names of the chromosome files
 for chr in $CHR_LIST
 do
-    ls $geno_dir/plink/c${chr}.onlyrsids.imputed.noduplicates.filtered.3.bed >> $geno_dir/plink/list_bed_files_to_merge_bis.txt
+    ls $geno_plink_dir/c${chr}.onlyrsids.imputed.noduplicates.filtered.3.bed >> $geno_plink_dir/list_bed_files_to_merge_bis.txt
 done
 
 # Remove the file extensions in the previously created list
-sed -i s/\.bed$//g $geno_dir/plink/list_bed_files_to_merge_bis.txt
+sed -i s/\.bed$//g $geno_plink_dir/list_bed_files_to_merge_bis.txt
 
 # STEP 5.2 Run PLINK to perform the merge
 
-$plink_dir/plink --merge-list $geno_dir/plink/list_bed_files_to_merge_bis.txt \
+$plink_dir/plink --merge-list $geno_plink_dir/list_bed_files_to_merge_bis.txt \
             	 --make-bed \
-            	 --out $geno_dir/plink/all.onlyrsids.imputed.complete
+            	 --out $geno_plink_dir/all.onlyrsids.imputed.complete

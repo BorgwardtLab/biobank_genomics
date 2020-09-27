@@ -28,12 +28,12 @@ for i in angina any_allowance any_heart_d any_household any_trauma attendance bl
 	name_additive_raw[i]="all.onlyrsids.imputed.complete.male.train.$i.raw"
 	name_additive[i]="all.onlyrsids.imputed.complete.male.train.$i"
 	name_hdf5[i]="all.onlyrsids.imputed.complete.male.train.$i.hdf5"
-	python ./convert_plink_raw_to_hdf5.py \
-	       --plink_prefix $geno_dir/plink/${name_additive[i]} \
-	       --raw_file $geno_dir/plink/${name_additive_raw[i]}\
+	python ../convert_plink_raw_to_hdf5.py \
+	       --plink_prefix $geno_plink_dir/${name_additive[i]} \
+	       --raw_file $geno_plink_dir/${name_additive_raw[i]}\
 	       --skip_rows 1 \
 	       --naive_impute 0 \
-	       --new_hdf5_file $geno_dir/hdf5/${name_hdf5[i]}
+	       --new_hdf5_file $out_dir/${name_hdf5[i]}
 done
 
 
@@ -47,10 +47,10 @@ for i in any_allowance any_trauma attendance blue_badge cancer death_partner dea
 	name_additive_raw[i]="all.onlyrsids.imputed.complete.female.train.$i.raw"
 	name_additive[i]="all.onlyrsids.imputed.complete.female.train.$i"
 	name_hdf5[i]="all.onlyrsids.imputed.complete.female.train.$i.hdf5"
-	python ./convert_plink_raw_to_hdf5.py \
-	       --plink_prefix $geno_dir/plink/${name_additive[i]} \
-	       --raw_file $geno_dir/plink/${name_additive_raw[i]}\
+	python ../convert_plink_raw_to_hdf5.py \
+	       --plink_prefix $geno_plink_dir/${name_additive[i]} \
+	       --raw_file $geno_plink_dir/${name_additive_raw[i]}\
 	       --skip_rows 1 \
 	       --naive_impute 0 \
-	       --new_hdf5_file $geno_dir/hdf5/${name_hdf5[i]}
+	       --new_hdf5_file $out_dir/${name_hdf5[i]}
 done
