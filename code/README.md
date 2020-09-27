@@ -386,13 +386,37 @@ $out_dir/all.onlyrsids.imputed.complete.male.test.fam
 ## Step 8
 
 ```
-
+list_ID_grandparent_male
+PLINK v1.90b3d 64-bit (10 Feb 2015)        https://www.cog-genomics.org/plink2
+(C) 2005-2015 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to $out_dir/all.onlyrsids.imputed.complete.male.train.grandparent.log.
+515868 MB RAM detected; reserving 257934 MB for main workspace.
+62737 variants loaded from .bim file.
+183186 people (183186 males, 0 females) loaded from .fam.
+--keep: 144 people remaining.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 144 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+62737 variants and 144 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to
+$out_dir/all.onlyrsids.imputed.complete.male.train.grandparent.bed
++
+$out_dir/all.onlyrsids.imputed.complete.male.train.grandparent.bim
++
+$out_dir/all.onlyrsids.imputed.complete.male.train.grandparent.fam
+... done.
+--recode A to
+$out_dir/all.onlyrsids.imputed.complete.male.train.grandparent.raw
+... done.
 ```
 
 ## Step 9
 
 ```
-
+Reading the .fam and .bim files...
+Reading the genotype matrix...
+100.0%
 ```
 
 
