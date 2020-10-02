@@ -8,7 +8,7 @@
 #
 # This file contains script to filter based on project-specific requirements and recode according to the additive model
 # This step assumes the existence of a file containing IDs of subjects to keep in project specific analysis 
-# This file should be stored in $geno_plink_dir folder as specified in paths_and_parameters.sh script
+# This file should be stored in prj_dir directory as specified in paths_and_parameters.sh script
 # or modify the paths accordingly on lines 49 and 74
 #
 # First Version: July 2016, D. Roqueiro
@@ -31,51 +31,89 @@ source paths_and_parameters.sh
 #  It is basically the count of the minor allele
 # Source: PLINK's online help page http://pngu.mgh.harvard.edu/~purcell/plink/dataman.shtml
 
-# # MALE # # 
-groups=()
-excluded_participants=()
-groups_init=()
-excluded_participants_init=()
-name=() # declare an empty array; same as: declare -a groups
-for i in angina any_allowance any_heart_d any_household any_trauma attendance blue_badge cancer child death_partner death_relative diabetes disability divorce finance grandchild grandparent hbp health_fair health_good health_poor heart_attack nb_cars_1 nb_cars_2 nb_cars_3 nb_cars_4 nb_household_1 nb_household_2 oth_related pace_ave pace_brisk pace_none parent partner serious_relative serious_yourself siblings smoke_now_most smoke_now_occ smoke_past_never smoke_past_occ smoke_past_try stroke unrelated ; do
-  groups_init[i]="list_ID_$i"
-  groups[i]="${groups_init[i]}_male"
-  excluded_participants_init[i]="excluded_participants_$i"
-  excluded_participants[i]="${excluded_participants_init[i]}_male"
-  name[i]="all.onlyrsids.imputed.complete.male.train.$i"
+if [ $SAMPLE_FILTER == `echo TRUE` ]; then
+    if [ $SNP_FILTER == `echo FALSE` ]; then
+      # # MALE # # 
+      grep -w -F -f $prj_dir/included_IDs.txt $geno_plink_dir/all.onlyrsids.imputed.complete.male.train.fam > $prj_dir/extended_included_IDs_male.txt
 
-   echo ${groups[i]}
-
-   grep -w -F -f $geno_plink_dir/${groups[i]}.txt $geno_plink_dir/all.onlyrsids.imputed.complete.male.train.fam > $geno_plink_dir/${excluded_participants[i]}.txt
-
-   $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.male.train \
-	                --keep $geno_plink_dir/${excluded_participants[i]}.txt\
-	                --recode A \
-	                --make-bed \
-	                --out $geno_plink_dir/${name[i]}
-done
+      $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.male.train \
+                       --keep $prj_dir/extended_included_IDs_male.txt\
+                       --recode A \
+                       --make-bed \
+                       --out $geno_plink_dir/all.onlyrsids.imputed.complete.male.train.filtered
 
 
-# # FEMALE # # 
-groups=()
-excluded_participants=()
-groups_init=()
-excluded_participants_init=()
-name=() # declare an empty array; same as: declare -a groups
-for i in any_allowance any_trauma attendance blue_badge cancer death_partner death_relative depression disability divorce finance health_fair health_good health_poor nb_child_1 nb_child_2 nb_child_3 pace_ave pace_brisk pace_none serious_relative serious_yourself smoke_now_most smoke_now_occ smoke_past_never smoke_past_occ smoke_past_try ; do
-  groups_init[i]="list_ID_$i"
-  groups[i]="${groups_init[i]}_female"
-  excluded_participants_init[i]="excluded_participants_$i"
-  excluded_participants[i]="${excluded_participants_init[i]}_female"
-  name[i]="all.onlyrsids.imputed.complete.female.train.$i"
+      # # FEMALE # #
+      grep -w -F -f $prj_dir/included_IDs.txt $geno_plink_dir/all.onlyrsids.imputed.complete.female.train.fam > $prj_dir/extended_included_IDs_female.txt
 
-  echo ${groups[i]}
+      $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.female.train \
+                       --keep $prj_dir/extended_included_IDs_female.txt\
+                       --recode A \
+                       --make-bed \
+                       --out $geno_plink_dir/all.onlyrsids.imputed.complete.female.train.filtered
+    fi
+fi
 
-  grep -w -F -f $geno_plink_dir/${groups[i]}.txt $geno_plink_dir/all.onlyrsids.imputed.complete.female.fam > $geno_plink_dir/${excluded_participants[i]}.txt
 
-  $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.female.train \
-	               --keep $geno_plink_dir/${excluded_participants[i]}.txt\
-	               --recode A \
-	               --make-bed \
-	               --out $geno_plink_dir/${name[i]}
-done
+if [ $SAMPLE_FILTER == `echo FALSE` ]; then
+    if [ $SNP_FILTER == `echo TRUE` ]; then
+      # # MALE # # 
+      $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.male.train \
+                       --snps $SNPS_TO_INCLUDE \
+                       --recode A \
+                       --make-bed \
+                       --out $geno_plink_dir/all.onlyrsids.imputed.complete.male.train.filtered
+
+
+      # # FEMALE # #
+      $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.female.train \
+                       --snps $SNPS_TO_INCLUDE \
+                       --recode A \
+                       --make-bed \
+                       --out $geno_plink_dir/all.onlyrsids.imputed.complete.female.train.filtered
+    fi
+fi
+
+
+if [ $SAMPLE_FILTER == `echo TRUE` ]; then
+    if [ $SNP_FILTER == `echo TRUE` ]; then
+      # # MALE # # 
+      grep -w -F -f $prj_dir/included_IDs.txt $geno_plink_dir/all.onlyrsids.imputed.complete.male.train.fam > $prj_dir/extended_included_IDs_male.txt
+
+      $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.male.train \
+                       --keep $prj_dir/extended_included_IDs_male.txt\
+                       --snps $SNPS_TO_INCLUDE \
+                       --recode A \
+                       --make-bed \
+                       --out $geno_plink_dir/all.onlyrsids.imputed.complete.male.train.filtered
+
+
+      # # FEMALE # #
+      grep -w -F -f $prj_dir/included_IDs.txt $geno_plink_dir/all.onlyrsids.imputed.complete.female.train.fam > $prj_dir/extended_included_IDs_female.txt
+
+      $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.female.train \
+                       --keep $prj_dir/extended_included_IDs_female.txt\
+                       --snps $SNPS_TO_INCLUDE \
+                       --recode A \
+                       --make-bed \
+                       --out $geno_plink_dir/all.onlyrsids.imputed.complete.female.train.filtered
+    fi
+fi
+
+
+if [ $SAMPLE_FILTER == `echo FALSE` ]; then
+    if [ $SNP_FILTER == `echo FALSE` ]; then
+      # # MALE # # 
+      $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.male.train \
+                       --recode A \
+                       --make-bed \
+                       --out $geno_plink_dir/all.onlyrsids.imputed.complete.male.train.filtered
+
+
+      # # FEMALE # #
+      $plink_dir/plink --bfile $geno_plink_dir/all.onlyrsids.imputed.complete.female.train \
+                       --recode A \
+                       --make-bed \
+                       --out $geno_plink_dir/all.onlyrsids.imputed.complete.female.train.filtered
+    fi
+fi

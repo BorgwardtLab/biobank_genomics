@@ -33,6 +33,11 @@ LD_STEPSIZE=`echo 500`
 LD_R2=`echo 0.04`
 HWE=`echo 1e-6`
 
+# Should project-specific filters should be applied?
+SNP_FILTER=`echo FALSE` # if TRUE, provide IDs of SNPs to include in SNPS_TO_INCLUDE parameter; supported values are 'TRUE' or 'FALSE'
+SNPS_TO_INCLUDE=`echo ` # e.g. SNPS_TO_INCLUDE=`echo rs4970382 rs78164078` 
+SAMPLE_FILTER=`echo FALSE` # if TRUE, provide IDs of subjects to be included in .txt file under prj_dir directory; supported values are 'TRUE' or 'FALSE'
+
 # Main project directory
 prj_dir=~/UKBiobank
 
